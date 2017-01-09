@@ -1,9 +1,11 @@
 from distutils.core import setup
+from setuptools import find_packages
+
 
 setup(
     name = 'speedyio',
-    packages = ['speedyio'],
-    version = '0.0.1',
+    packages = find_packages(),
+    version = '0.0.2',
     description = 'Input from console made easy and interactive for Python',
     author = 'Arpit Bhayani',
     author_email = 'arpit.b.bhayani@gmail.com',
