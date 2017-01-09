@@ -8,7 +8,7 @@ setup(
     author = 'Arpit Bhayani',
     author_email = 'arpit.b.bhayani@gmail.com',
     url = 'https://github.com/arpitbbhayani/speedyio',
-    download_url = 'download link you saved',
+    download_url = 'https://github.com/arpitbbhayani/speedyio',
     keywords = ['io', 'cli'],
     classifiers = [],
 )
