@@ -1,1 +1,1 @@
-from .selectable_item import SelectableItem
+from .item import Item

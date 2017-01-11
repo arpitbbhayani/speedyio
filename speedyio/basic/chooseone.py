@@ -1,5 +1,5 @@
 from speedyio.errors import SpeedyIOTypeError
-from speedyio.entities import SelectableItem
+from speedyio.entities import Item
 
 
 def chooseone(options, message="Select one"):
@@ -9,13 +9,13 @@ def chooseone(options, message="Select one"):
     if len(options) == 0:
         raise SpeedyIOTypeError("Options cannot be empty")
 
-    if len(options) > 0 and type(options[0]) != SelectableItem:
+    if len(options) > 0 and type(options[0]) != Item:
         raise SpeedyIOTypeError("Every item of options should be a SelectableItem")
 
-    while True:
-        for i in range(len(options)):
-            print("{}. {}".format(i, options[i].label))
+    for i in range(len(options)):
+        print("{}. {}".format(i, options[i].label))
 
+    while True:
         index = input(message + " : ")
 
         try:
@@ -26,5 +26,6 @@ def chooseone(options, message="Select one"):
 
         if index < 0 or index >= len(options):
             print("Invalid selection. Please choose a correct option.")
+            continue
 
         return options[index].item
