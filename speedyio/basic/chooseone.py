@@ -16,7 +16,7 @@ def chooseone(options, message="Select one"):
         print("{}. {}".format(i, options[i].label))
 
     while True:
-        index = input(message + " : ")
+        index = input(message + ": ")
 
         try:
             index = int(index)
