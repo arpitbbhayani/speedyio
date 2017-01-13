@@ -12,8 +12,10 @@ def chooseone(options, message="Select one"):
     if len(options) > 0 and type(options[0]) != Item:
         raise SpeedyIOTypeError("Every item of options should be a SelectableItem")
 
+    print("")
     for i in range(len(options)):
-        print("{}. {}".format(i, options[i].label))
+        print(" {}. {}".format(i+1, options[i].label))
+    print("")
 
     while True:
         index = input(message + ": ")
@@ -24,7 +26,7 @@ def chooseone(options, message="Select one"):
             print("Invalid selection. Please choose a correct option.")
             continue
 
-        if index < 0 or index >= len(options):
+        if index <= 0 or index > len(options):
             print("Invalid selection. Please choose a correct option.")
             continue
 
