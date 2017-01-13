@@ -14,13 +14,12 @@ def chooseone(options, message="Select one"):
     if len(options) > 0 and type(options[0]) != Item:
         raise SpeedyIOTypeError("Every item of options should be a SelectableItem")
 
-    while True:
-        questions = [
-            inquirer.List('value',
-                  message=message,
-                  choices=[(c.label, c.item) for c in options],
-            )
-        ]
+    questions = [
+        inquirer.List('value',
+              message=message,
+              choices=[(c.label, c.item) for c in options],
+        )
+    ]
 
-        answers = inquirer.prompt(questions)
-        return answers['value']
+    answers = inquirer.prompt(questions)
+    return answers['value']
