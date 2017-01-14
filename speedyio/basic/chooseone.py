@@ -30,4 +30,4 @@ def chooseone(options, message="Select one"):
             print("Invalid selection. Please choose a correct option.")
             continue
 
-        return options[index].item
+        return options[index-1].item

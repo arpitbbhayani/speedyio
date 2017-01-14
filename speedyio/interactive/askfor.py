@@ -1,11 +1,12 @@
 import inquirer
+from speedyio import terminal
 
 
 def askfor(t, message, empty_allowed=True):
     while True:
         questions = [
             inquirer.Text('value',
-                      message=message),
+                      message=terminal.bold(message)),
         ]
         answers = inquirer.prompt(questions)
         x = answers['value']

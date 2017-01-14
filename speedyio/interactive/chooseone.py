@@ -1,7 +1,8 @@
 import inquirer
 
-from speedyio.errors import SpeedyIOTypeError
+from speedyio import terminal
 from speedyio.entities import Item
+from speedyio.errors import SpeedyIOTypeError
 
 
 def chooseone(options, message="Select one"):
@@ -16,8 +17,8 @@ def chooseone(options, message="Select one"):
 
     questions = [
         inquirer.List('value',
-              message=message,
-              choices=[(c.label, c.item) for c in options],
+              message=terminal.bold(message),
+              choices=[(terminal.bold(c.label), c.item) for c in options],
         )
     ]
 
