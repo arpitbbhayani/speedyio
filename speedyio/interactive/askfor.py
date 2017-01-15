@@ -2,16 +2,21 @@ import inquirer
 from speedyio import terminal
 
 
-def askfor(t, message, empty_allowed=True):
+def askfor(message, empty_allowed=True, default=None):
+    message = terminal.bold(message)
+    if default:
+         message += "({})".format(default)
+
+    questions = [
+        inquirer.Text('value', message=message)
+    ]
+
     while True:
-        questions = [
-            inquirer.Text('value',
-                      message=terminal.bold(message)),
-        ]
         answers = inquirer.prompt(questions)
         x = answers['value']
-        if empty_allowed is True or x:
-            # if empty string is allowed return it.
-            # if it is not allowd and some value of x is provided then return
-            # else infinite ask again
-            return t(answers.get('value'))
+        if empty_allowed is True:
+            return answers.get('value')
+
+        if default and not x: x = default
+
+        if x: return x
