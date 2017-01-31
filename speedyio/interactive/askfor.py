@@ -1,5 +1,6 @@
 import inquirer
 from speedyio import terminal
+from speedyio.errors import SpeedyIOInputError
 
 
 def askfor(message, empty_allowed=True, default=None):
@@ -13,6 +14,9 @@ def askfor(message, empty_allowed=True, default=None):
 
     while True:
         answers = inquirer.prompt(questions)
+        if answers is None:
+            raise SpeedyIOInputError("No input given!")
+
         x = answers['value']
         if empty_allowed is True:
             return answers.get('value')

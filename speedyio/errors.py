@@ -17,3 +17,8 @@ class SpeedyIOError(Exception):
 class SpeedyIOTypeError(SpeedyIOError):
     def __init__(self, message):
         SpeedyIOError.__init__(self, 'SPEEDYIO_TYPE_ERROR', message)
+
+
+class SpeedyIOInputError(SpeedyIOError):
+    def __init__(self, message):
+        SpeedyIOError.__init__(self, 'SPEEDYIO_INPUT_ERROR', message)
