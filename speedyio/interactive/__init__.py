@@ -1,5 +1,6 @@
 from .info import info
 from .error import error
+from .yesno import yesno
 from .askfor import askfor
 from .success import success
 from .chooseone import chooseone
